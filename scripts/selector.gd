@@ -11,6 +11,7 @@ enum {
 	CHOICE_NUMBER
 }
 var choice := 0
+var labels = [$MarginContainer/ColorRect/Attack,$MarginContainer/ColorRect/Defend,$MarginContainer/ColorRect/Heal]
 
 func get_btn(idx: int) -> Label:
 	return $MarginContainer/ColorRect.get_child(idx + 1)
