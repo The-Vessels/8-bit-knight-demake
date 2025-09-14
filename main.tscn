@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://c32snvm7b4jpk"]
+[gd_scene load_steps=11 format=4 uid="uid://c32snvm7b4jpk"]
 
 [ext_resource type="Script" uid="uid://xse13t6hpjfn" path="res://selector.gd" id="1_7mycd"]
 [ext_resource type="Script" uid="uid://cl724rjxxk7vq" path="res://roaring_knight.gd" id="1_ig7tw"]
@@ -10,99 +10,22 @@
 [sub_resource type="Theme" id="Theme_4c57u"]
 default_font = ExtResource("2_272bh")
 
-[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_0xm2m"]
-_data = PackedByteArray("AAADAAUAAAABAAAAYAAAAGAAAABAAQAAUklGRjgBAABXRUJQVlA4TCwBAAAvX8AXEBcw//M///MfgAe4se3WjV6ChNUheQmq8w8JylzhaQ24gYj+O3AbSZG8cHwZ+AV+cDjMdgMwYjfgpO0GwMByoLgd4HrAacuBIAX7KMihR93XPOfA01+0wCODOeS67oXriIixxH+BOlPEcgBh24HkYuAnh8OsBRyugRmYNAjTwIyTGqAGZsCQFzQNDJV8JXg0METdpjIJ1JkI/tFT93fkQV3HjOzrGUMVpPV1j46F78mAW5XFHkjaDFIX3KmBGU/NgaaBGUK58BmEAbuB5GLgN0cJc9fAzEO5203gTNQRJPHogcfE44anoXogZiAeYY9sgS1Oi4tz7OZklgTWGC6kYeQoUv6O+F4/VYqcQenpHcYeJX/MEGdCvizOnJ7yFWsix242QIbHAQA=")
-size_override = Vector2(96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h2yge"]
-atlas = SubResource("PortableCompressedTexture2D_0xm2m")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1bvp3"]
-atlas = SubResource("PortableCompressedTexture2D_0xm2m")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lquwl"]
-atlas = SubResource("PortableCompressedTexture2D_0xm2m")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7mycd"]
-atlas = SubResource("PortableCompressedTexture2D_0xm2m")
-region = Rect2(0, 32, 32, 32)
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_7mycd"]
+_data = PackedByteArray("AAADAAUAAAABAAAAHwAAACAAAADUAAAAUklGRswAAABXRUJQVlA4TMAAAAAvHsAHEB8gEEhS2R9yDYFAksv+jAsEkqT2R3v+A/BXAdzatpZFB4evDJypgibu+yUatyr+mPx9IxEuX5tYCxH9nwBgueTi4/+l5YhFAB7/eO8By/5DXgfm613sAVXpowAspR5Afql6TFYP8Lj40roFjzvzsgeVfUt1wCQH+JRmZ1EaN+tUu3LnzTqPo+Us1h4ow+fssx6TY/5YN0/BPK/n0i4lqy9NkvsDR0lvf4F5KrOvEcAypXDGMnL5vt+7pgA=")
+size_override = Vector2(31, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_272bh"]
-atlas = SubResource("PortableCompressedTexture2D_0xm2m")
-region = Rect2(32, 32, 32, 32)
+atlas = SubResource("PortableCompressedTexture2D_7mycd")
+region = Rect2(0, 0, 31, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5vw27"]
-atlas = SubResource("PortableCompressedTexture2D_0xm2m")
-region = Rect2(64, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kek77"]
-atlas = SubResource("PortableCompressedTexture2D_0xm2m")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4c57u"]
-atlas = SubResource("PortableCompressedTexture2D_0xm2m")
-region = Rect2(32, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_efxa6"]
-atlas = SubResource("PortableCompressedTexture2D_0xm2m")
-region = Rect2(64, 64, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_dg77c"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_5vw27"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_h2yge")
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1bvp3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lquwl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7mycd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7mycd")
-}],
-"loop": true,
-"name": &"Point",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7mycd")
-}],
-"loop": true,
-"name": &"PointLoop",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_272bh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5vw27")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kek77")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4c57u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_efxa6")
 }],
 "loop": true,
-"name": &"Slash",
+"name": &"default",
 "speed": 10.0
 }]
 
@@ -110,6 +33,7 @@ animations = [{
 texture_filter = 1
 
 [node name="Reference" type="Sprite2D" parent="."]
+z_index = -2
 texture = ExtResource("6_kek77")
 centered = false
 
@@ -137,6 +61,7 @@ layout_mode = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Prompt" type="Label" parent="Selector/MarginContainer/ColorRect"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = -3.0
 offset_right = 63.0
@@ -147,6 +72,7 @@ text = "WHAT WILL
 YOU DO?"
 
 [node name="Attack" type="Label" parent="Selector/MarginContainer/ColorRect"]
+layout_mode = 0
 offset_left = 76.0
 offset_top = 2.0
 offset_right = 118.0
@@ -156,6 +82,7 @@ theme_override_constants/line_spacing = -6
 text = "ATTACK"
 
 [node name="Defend" type="Label" parent="Selector/MarginContainer/ColorRect"]
+layout_mode = 0
 offset_left = 135.0
 offset_top = 2.0
 offset_right = 177.0
@@ -165,6 +92,7 @@ theme_override_constants/line_spacing = -6
 text = "DEFEND"
 
 [node name="Heal" type="Label" parent="Selector/MarginContainer/ColorRect"]
+layout_mode = 0
 offset_left = 195.0
 offset_top = 2.0
 offset_right = 223.0
@@ -187,9 +115,8 @@ path = NodePath("phantoms")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="RoaringKnight"]
 texture_filter = 1
-position = Vector2(213, 84)
-sprite_frames = SubResource("SpriteFrames_dg77c")
-animation = &"Slash"
+position = Vector2(201, 97)
+sprite_frames = SubResource("SpriteFrames_5vw27")
 script = ExtResource("2_0xm2m")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": true,
@@ -205,13 +132,13 @@ metadata/_aseprite_wizard_config_ = {
 "o_folder": "",
 "o_name": "",
 "only_visible": false,
-"scale": "2.0",
+"scale": "1.0",
 "should_round_fps": true,
 "slice": "",
 "source": "res://RK.ase",
 "source_uid": 4659211799327366307
 }
-metadata/_aseprite_wizard_source_file_hash_ = "76258aafbf7089dc88d07233471fcead"
+metadata/_aseprite_wizard_source_file_hash_ = "6506459e03c3bb13c67e545e7a3e83c4"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RoaringKnight"]
 
