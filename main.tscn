@@ -1,0 +1,140 @@
+[gd_scene load_steps=14 format=4 uid="uid://c32snvm7b4jpk"]
+
+[ext_resource type="Script" uid="uid://cl724rjxxk7vq" path="res://roaring_knight.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://cr6i4kwlu5fuh" path="res://tween_if_clone.gd" id="2_0xm2m"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_0xm2m"]
+_data = PackedByteArray("AAADAAUAAAABAAAAYAAAAGAAAABAAQAAUklGRjgBAABXRUJQVlA4TCwBAAAvX8AXEBcw//M///MfgAe4se3WjV6ChNUheQmq8w8JylzhaQ24gYj+O3AbSZG8cHwZ+AV+cDjMdgMwYjfgpO0GwMByoLgd4HrAacuBIAX7KMihR93XPOfA01+0wCODOeS67oXriIixxH+BOlPEcgBh24HkYuAnh8OsBRyugRmYNAjTwIyTGqAGZsCQFzQNDJV8JXg0METdpjIJ1JkI/tFT93fkQV3HjOzrGUMVpPV1j46F78mAW5XFHkjaDFIX3KmBGU/NgaaBGUK58BmEAbuB5GLgN0cJc9fAzEO5203gTNQRJPHogcfE44anoXogZiAeYY9sgS1Oi4tz7OZklgTWGC6kYeQoUv6O+F4/VYqcQenpHcYeJX/MEGdCvizOnJ7yFWsix242QIbHAQA=")
+size_override = Vector2(96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2yge"]
+atlas = SubResource("PortableCompressedTexture2D_0xm2m")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bvp3"]
+atlas = SubResource("PortableCompressedTexture2D_0xm2m")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lquwl"]
+atlas = SubResource("PortableCompressedTexture2D_0xm2m")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mycd"]
+atlas = SubResource("PortableCompressedTexture2D_0xm2m")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_272bh"]
+atlas = SubResource("PortableCompressedTexture2D_0xm2m")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vw27"]
+atlas = SubResource("PortableCompressedTexture2D_0xm2m")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kek77"]
+atlas = SubResource("PortableCompressedTexture2D_0xm2m")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4c57u"]
+atlas = SubResource("PortableCompressedTexture2D_0xm2m")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efxa6"]
+atlas = SubResource("PortableCompressedTexture2D_0xm2m")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dg77c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2yge")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bvp3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lquwl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mycd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mycd")
+}],
+"loop": true,
+"name": &"Point",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mycd")
+}],
+"loop": true,
+"name": &"PointLoop",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_272bh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vw27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kek77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4c57u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efxa6")
+}],
+"loop": true,
+"name": &"Slash",
+"speed": 10.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="RoaringKnight" type="Node2D" parent="." node_paths=PackedStringArray("origin_sprite", "path")]
+script = ExtResource("1_ig7tw")
+origin_sprite = NodePath("Sprite")
+delta = 0.1
+path = NodePath("phantoms")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="RoaringKnight"]
+texture_filter = 1
+position = Vector2(213, 84)
+sprite_frames = SubResource("SpriteFrames_dg77c")
+animation = &"Slash"
+script = ExtResource("2_0xm2m")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": true,
+"layer_section": true,
+"output_section": true,
+"pending_changes": {},
+"slice_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "2.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://RK.ase",
+"source_uid": 4659211799327366307
+}
+metadata/_aseprite_wizard_source_file_hash_ = "76258aafbf7089dc88d07233471fcead"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RoaringKnight"]
+
+[node name="phantoms" type="Node2D" parent="RoaringKnight"]
