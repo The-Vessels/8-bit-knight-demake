@@ -10,7 +10,9 @@ var time : float = 0;
 func _process(dt : float):
 	time_off += dt;
 	time += dt;
-	self.position.y += sign(sin(time))/8.0
+	var target_y = self.position.y + sin(time) / 5.0
+	self.position.y = lerp(self.position.y, target_y, 1)
+
 	
 	#var frame : int = origin_sprite.frame;
 	#var anim : StringName = origin_sprite.animation;

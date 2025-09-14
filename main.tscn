@@ -1,14 +1,28 @@
-[gd_scene load_steps=11 format=4 uid="uid://c32snvm7b4jpk"]
+[gd_scene load_steps=19 format=4 uid="uid://c32snvm7b4jpk"]
 
-[ext_resource type="Script" uid="uid://xse13t6hpjfn" path="res://selector.gd" id="1_7mycd"]
+[ext_resource type="Script" uid="uid://xse13t6hpjfn" path="res://scripts/selector.gd" id="1_7mycd"]
 [ext_resource type="Script" uid="uid://cl724rjxxk7vq" path="res://roaring_knight.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://cr6i4kwlu5fuh" path="res://tween_if_clone.gd" id="2_0xm2m"]
 [ext_resource type="FontFile" uid="uid://bm7yvu5ht052t" path="res://fonts/main.ttf" id="2_272bh"]
 [ext_resource type="Texture2D" uid="uid://dyt8ehtfeoppy" path="res://assets/sprites/soul/soul.png" id="3_5vw27"]
-[ext_resource type="Texture2D" uid="uid://b8u8e74upmcr3" path="res://assets/sprites/reference.png" id="6_kek77"]
+[ext_resource type="Texture2D" uid="uid://ch0svlwn0hihs" path="res://FUCKINGKNIGHT.png" id="6_272bh"]
+[ext_resource type="Texture2D" uid="uid://dpaacfgegoi2r" path="res://assets/sprites/reference.png" id="6_kek77"]
+[ext_resource type="AudioStream" uid="uid://bh1cbbsdgrmwt" path="res://BLACK KNIFE 8bit.ogg" id="8_5vw27"]
 
 [sub_resource type="Theme" id="Theme_4c57u"]
 default_font = ExtResource("2_272bh")
+
+[sub_resource type="Gradient" id="Gradient_5vw27"]
+offsets = PackedFloat32Array(0, 0.38)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_272bh"]
+gradient = SubResource("Gradient_5vw27")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5vw27"]
+particle_flag_disable_z = true
+gravity = Vector3(250, 0, 0)
+color_ramp = SubResource("GradientTexture1D_272bh")
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_7mycd"]
 _data = PackedByteArray("AAADAAUAAAABAAAAHwAAACAAAADUAAAAUklGRswAAABXRUJQVlA4TMAAAAAvHsAHEB8gEEhS2R9yDYFAksv+jAsEkqT2R3v+A/BXAdzatpZFB4evDJypgibu+yUatyr+mPx9IxEuX5tYCxH9nwBgueTi4/+l5YhFAB7/eO8By/5DXgfm613sAVXpowAspR5Afql6TFYP8Lj40roFjzvzsgeVfUt1wCQH+JRmZ1EaN+tUu3LnzTqPo+Us1h4ow+fssx6TY/5YN0/BPK/n0i4lqy9NkvsDR0lvf4F5KrOvEcAypXDGMnL5vt+7pgA=")
@@ -28,6 +42,90 @@ animations = [{
 "name": &"default",
 "speed": 10.0
 }]
+
+[sub_resource type="Animation" id="Animation_5vw27"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.76),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.17, 0.46, 0.76),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.8), Color(1, 1, 1, 0.529412), Color(1, 1, 1, 0.286275), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:color")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.17, 0.46),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.447059, 0.796078, 0.65098, 1), Color(0.447059, 0.568627, 0.65098, 1), Color(0.447059, 0.270588, 0.65098, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kek77"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.447059, 0.796078, 0.65098, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4c57u"]
+_data = {
+&"RESET": SubResource("Animation_kek77"),
+&"new_animation": SubResource("Animation_5vw27")
+}
 
 [node name="Node2D" type="Node2D"]
 texture_filter = 1
@@ -113,6 +211,15 @@ origin_sprite = NodePath("Sprite")
 delta = 0.1
 path = NodePath("phantoms")
 
+[node name="CPUParticles2D" type="GPUParticles2D" parent="RoaringKnight"]
+position = Vector2(201, 97)
+amount = 16
+texture = ExtResource("6_272bh")
+fixed_fps = 25
+interpolate = false
+draw_order = 0
+process_material = SubResource("ParticleProcessMaterial_5vw27")
+
 [node name="Sprite" type="AnimatedSprite2D" parent="RoaringKnight"]
 texture_filter = 1
 position = Vector2(201, 97)
@@ -139,7 +246,28 @@ metadata/_aseprite_wizard_config_ = {
 "source_uid": 4659211799327366307
 }
 metadata/_aseprite_wizard_source_file_hash_ = "6506459e03c3bb13c67e545e7a3e83c4"
+metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RoaringKnight"]
 
 [node name="phantoms" type="Node2D" parent="RoaringKnight"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_5vw27")
+volume_db = -0.2
+autoplay = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -3.0
+offset_top = -2.0
+offset_right = 260.0
+offset_bottom = 226.0
+color = Color(0.447059, 0.796078, 0.65098, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+libraries = {
+&"": SubResource("AnimationLibrary_4c57u")
+}
+autoplay = "new_animation"
+speed_scale = 3.5
