@@ -10,7 +10,7 @@ var time : float = 0;
 func _process(dt : float):
 	time_off += dt;
 	time += dt;
-	var target_y = self.position.y + sin(time) / 5.0
+	var target_y = self.position.y + sin(time) / 10.0
 	self.position.y = lerp(self.position.y, target_y, 1)
 
 	

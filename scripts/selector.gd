@@ -1,5 +1,8 @@
 extends ColorRect
 
+var select = preload("res://assets/sounds/select.wav")
+var move = preload("res://assets/sounds/move.wav")
+
 @onready var soul: Sprite2D = $MarginContainer/ColorRect/Soul
 enum {
 	CHOICE_ATTACK,
@@ -21,3 +24,11 @@ func _input(event: InputEvent) -> void:
 	
 	if choice != old_choice:
 		soul.set_position(get_btn(choice).position)
+		$UiSFX.stream = move
+		$UiSFX.play()
+	
+	if event.is_action_pressed("confirm"):
+		# todo: actually do something lol
+		$UiSFX.stop()
+		$UiSFX.stream = select
+		$UiSFX.play()
