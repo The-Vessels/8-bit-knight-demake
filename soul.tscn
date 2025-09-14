@@ -1,16 +1,87 @@
-[gd_scene load_steps=4 format=3 uid="uid://bc36vuyutpk1m"]
+[gd_scene load_steps=12 format=3 uid="uid://bc36vuyutpk1m"]
 
+[ext_resource type="Shader" uid="uid://cnkfc7i5841jm" path="res://soulflicker.gdshader" id="1_nmvwf"]
 [ext_resource type="Script" uid="uid://d1tpp7fo80g4b" path="res://scripts/soul.gd" id="1_nq8dp"]
 [ext_resource type="Texture2D" uid="uid://dyt8ehtfeoppy" path="res://assets/sprites/soul/soul.png" id="2_nmvwf"]
+[ext_resource type="AudioStream" uid="uid://33dadffhvt4s" path="res://assets/sounds/hit.wav" id="4_bx6qs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bx6qs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ln5o6"]
+shader = ExtResource("1_nmvwf")
+shader_parameter/mixvalue = 0.0
+shader_parameter/hurtcolor = Color(0.686275, 0, 0.0392157, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bx6qs"]
-size = Vector2(6, 6)
+size = Vector2(7, 7)
 
-[node name="Soul" type="CharacterBody2D"]
+[sub_resource type="Animation" id="Animation_55pqc"]
+resource_name = "default"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SoulSprite:material:shader_parameter/mixvalue")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_3xvnr"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SoulSprite:material:shader_parameter/mixvalue")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_4cuf4"]
+resource_name = "hurt"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SoulSprite:material:shader_parameter/mixvalue")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s2715"]
+_data = {
+&"RESET": SubResource("Animation_3xvnr"),
+&"default": SubResource("Animation_55pqc"),
+&"hurt": SubResource("Animation_4cuf4")
+}
+
+[node name="Soul" type="CharacterBody2D" groups=["soul"]]
+material = SubResource("ShaderMaterial_bx6qs")
 script = ExtResource("1_nq8dp")
 
 [node name="SoulSprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ln5o6")
 texture = ExtResource("2_nmvwf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_bx6qs")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_s2715")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_bx6qs")

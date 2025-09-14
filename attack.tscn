@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmyfwd25kjd10"]
+
+[ext_resource type="PackedScene" uid="uid://cbagvyasiqtp5" path="res://battleboxscene.tscn" id="1_hvxpb"]
+
+[node name="Attack" type="Node2D"]
+position = Vector2(50, 50)
+
+[node name="Battlebox" parent="." instance=ExtResource("1_hvxpb")]

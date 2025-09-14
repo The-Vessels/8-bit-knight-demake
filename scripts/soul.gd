@@ -16,3 +16,10 @@ func _physics_process(delta: float) -> void:
 
 func _ready() -> void:
 	Soulreference.soulPosition = position
+	
+func damage(dmg):
+	if $AnimationPlayer.current_animation != "hurt":
+		$AudioStreamPlayer.play()
+		await get_tree().create_timer(1.5).timeout
+		$AnimationPlayer.play("RESET")
+		print("ouch i took" + str(dmg) + "damage!")
