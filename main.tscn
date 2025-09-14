@@ -1,11 +1,17 @@
-[gd_scene load_steps=19 format=4 uid="uid://c32snvm7b4jpk"]
+[gd_scene load_steps=22 format=4 uid="uid://c32snvm7b4jpk"]
 
-[ext_resource type="Script" uid="uid://xse13t6hpjfn" path="res://selector.gd" id="1_7mycd"]
+[ext_resource type="Script" uid="uid://xse13t6hpjfn" path="res://scripts/selector.gd" id="1_7mycd"]
 [ext_resource type="Script" uid="uid://cl724rjxxk7vq" path="res://roaring_knight.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://cr6i4kwlu5fuh" path="res://tween_if_clone.gd" id="2_0xm2m"]
+[ext_resource type="FontFile" uid="uid://c41adbr68olpl" path="res://fonts/9x5-ultimate.ttf" id="2_5vw27"]
 [ext_resource type="FontFile" uid="uid://bm7yvu5ht052t" path="res://fonts/main.ttf" id="2_272bh"]
+[ext_resource type="Script" uid="uid://cetno4ayw2wdf" path="res://hp_numbers.gd" id="2_kek77"]
 [ext_resource type="Texture2D" uid="uid://dyt8ehtfeoppy" path="res://assets/sprites/soul/soul.png" id="3_5vw27"]
-[ext_resource type="Texture2D" uid="uid://b8u8e74upmcr3" path="res://assets/sprites/reference.png" id="6_kek77"]
+[ext_resource type="Texture2D" uid="uid://dpaacfgegoi2r" path="res://assets/sprites/reference.png" id="6_kek77"]
+
+[sub_resource type="FontVariation" id="FontVariation_kek77"]
+base_font = ExtResource("2_5vw27")
+spacing_glyph = 2
 
 [sub_resource type="Theme" id="Theme_4c57u"]
 default_font = ExtResource("2_272bh")
@@ -113,6 +119,36 @@ texture_filter = 1
 texture = ExtResource("6_kek77")
 centered = false
 
+[node name="HPNumbers" type="Node2D" parent="."]
+position = Vector2(70, 171)
+script = ExtResource("2_kek77")
+
+[node name="HPKris" type="Label" parent="HPNumbers"]
+modulate = Color(0, 0, 0, 1)
+offset_right = 22.0
+offset_bottom = 23.0
+theme_override_fonts/font = SubResource("FontVariation_kek77")
+theme_override_font_sizes/font_size = 13
+text = "190"
+
+[node name="HPSusie" type="Label" parent="HPNumbers"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 56.0
+offset_right = 78.0
+offset_bottom = 23.0
+theme_override_fonts/font = SubResource("FontVariation_kek77")
+theme_override_font_sizes/font_size = 13
+text = "140"
+
+[node name="HPRalsei" type="Label" parent="HPNumbers"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 112.0
+offset_right = 134.0
+offset_bottom = 23.0
+theme_override_fonts/font = SubResource("FontVariation_kek77")
+theme_override_font_sizes/font_size = 13
+text = "100"
+
 [node name="Selector" type="ColorRect" parent="."]
 offset_left = 3.0
 offset_top = 200.0
@@ -137,6 +173,7 @@ layout_mode = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Prompt" type="Label" parent="Selector/MarginContainer/ColorRect"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = -3.0
 offset_right = 63.0
@@ -147,6 +184,7 @@ text = "WHAT WILL
 YOU DO?"
 
 [node name="Attack" type="Label" parent="Selector/MarginContainer/ColorRect"]
+layout_mode = 0
 offset_left = 76.0
 offset_top = 2.0
 offset_right = 118.0
@@ -156,6 +194,7 @@ theme_override_constants/line_spacing = -6
 text = "ATTACK"
 
 [node name="Defend" type="Label" parent="Selector/MarginContainer/ColorRect"]
+layout_mode = 0
 offset_left = 135.0
 offset_top = 2.0
 offset_right = 177.0
@@ -165,6 +204,7 @@ theme_override_constants/line_spacing = -6
 text = "DEFEND"
 
 [node name="Heal" type="Label" parent="Selector/MarginContainer/ColorRect"]
+layout_mode = 0
 offset_left = 195.0
 offset_top = 2.0
 offset_right = 223.0
