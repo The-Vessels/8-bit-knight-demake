@@ -1,10 +1,10 @@
-[gd_scene load_steps=65 format=4 uid="uid://c32snvm7b4jpk"]
+[gd_scene load_steps=63 format=4 uid="uid://c32snvm7b4jpk"]
 
 [ext_resource type="Script" uid="uid://brsosfwyl2i1f" path="res://main.gd" id="1_1u8w0"]
 [ext_resource type="Script" uid="uid://xse13t6hpjfn" path="res://scripts/selector.gd" id="1_7mycd"]
 [ext_resource type="Script" uid="uid://cl724rjxxk7vq" path="res://roaring_knight.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://cr6i4kwlu5fuh" path="res://tween_if_clone.gd" id="2_0xm2m"]
-[ext_resource type="FontFile" uid="uid://bm7yvu5ht052t" path="res://fonts/main.ttf" id="2_272bh"]
+[ext_resource type="FontFile" uid="uid://bm7yvu5ht052t" path="res://assets/fonts/main.ttf" id="2_272bh"]
 [ext_resource type="Texture2D" uid="uid://dyt8ehtfeoppy" path="res://assets/sprites/soul/soul.png" id="3_5vw27"]
 [ext_resource type="Texture2D" uid="uid://bp62jv7ao38wp" path="res://assets/sprites/hp/hpbox/kris.png" id="4_4k2k6"]
 [ext_resource type="Texture2D" uid="uid://cgx8coak5ahg5" path="res://assets/sprites/hp/hpname/kris.png" id="5_0rl1p"]
@@ -41,19 +41,19 @@ shader = ExtResource("23_d13ii")
 shader_parameter/overlay = true
 shader_parameter/resolution = Vector2(512, 448)
 shader_parameter/brightness = 1.4
-shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_opacity = 0.411
 shader_parameter/scanlines_width = 0.25
 shader_parameter/grille_opacity = 0.165
 shader_parameter/roll = true
 shader_parameter/roll_speed = 8.0
 shader_parameter/roll_size = 15.0
-shader_parameter/roll_variation = 0.809
+shader_parameter/roll_variation = 1.8
 shader_parameter/distort_intensity = 0.05
 shader_parameter/aberration = 0.03
 shader_parameter/noise_opacity = 0.108
 shader_parameter/noise_speed = 5.0
 shader_parameter/static_noise_intensity = 0.06
-shader_parameter/pixelate = false
+shader_parameter/pixelate = true
 shader_parameter/discolor = true
 shader_parameter/warp_amount = 0.35
 shader_parameter/clip_warp = false
@@ -80,16 +80,8 @@ offsets = PackedFloat32Array(0, 0.446667)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 
 [sub_resource type="Gradient" id="Gradient_5vw27"]
-offsets = PackedFloat32Array(0, 0.38)
+offsets = PackedFloat32Array(0, 0.654545)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_272bh"]
-gradient = SubResource("Gradient_5vw27")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5vw27"]
-particle_flag_disable_z = true
-gravity = Vector3(250, 0, 0)
-color_ramp = SubResource("GradientTexture1D_272bh")
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_7mycd"]
 _data = PackedByteArray("AAADAAUAAAABAAAAHwAAACAAAADUAAAAUklGRswAAABXRUJQVlA4TMAAAAAvHsAHEB8gEEhS2R9yDYFAksv+jAsEkqT2R3v+A/BXAdzatpZFB4evDJypgibu+yUatyr+mPx9IxEuX5tYCxH9nwBgueTi4/+l5YhFAB7/eO8By/5DXgfm613sAVXpowAspR5Afql6TFYP8Lj40roFjzvzsgeVfUt1wCQH+JRmZ1EaN+tUu3LnzTqPo+Us1h4ow+fssx6TY/5YN0/BPK/n0i4lqy9NkvsDR0lvf4F5KrOvEcAypXDGMnL5vt+7pgA=")
@@ -369,11 +361,13 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_1u8w0")
 offset_right = 512.0
 offset_bottom = 448.0
+metadata/_edit_lock_ = true
 
 [node name="GameRect" type="TextureRect" parent="."]
 offset_right = 512.0
 offset_bottom = 448.0
 texture = SubResource("ViewportTexture_d13ii")
+metadata/_edit_lock_ = true
 
 [node name="GameViewport" type="SubViewport" parent="."]
 size = Vector2i(256, 224)
@@ -388,10 +382,12 @@ centered = false
 [node name="HPBoxes" type="HBoxContainer" parent="GameViewport"]
 
 [node name="Kris" type="Control" parent="GameViewport/HPBoxes"]
+z_index = 2
 custom_minimum_size = Vector2(52, 0)
 layout_mode = 2
 
 [node name="Box" type="NinePatchRect" parent="GameViewport/HPBoxes/Kris"]
+layout_mode = 0
 offset_left = 45.0
 offset_top = 153.0
 offset_right = 99.0
@@ -429,6 +425,7 @@ custom_minimum_size = Vector2(52, 0)
 layout_mode = 2
 
 [node name="Box" type="NinePatchRect" parent="GameViewport/HPBoxes/Susie"]
+layout_mode = 0
 offset_left = 45.0
 offset_top = 153.0
 offset_right = 99.0
@@ -452,6 +449,7 @@ texture = ExtResource("9_come4")
 centered = false
 
 [node name="Label" type="Label" parent="GameViewport/HPBoxes/Susie"]
+layout_mode = 0
 offset_left = 68.0
 offset_top = 176.0
 offset_right = 92.0
@@ -461,9 +459,11 @@ theme_override_font_sizes/font_size = 14
 text = "190"
 
 [node name="Ralsei" type="Control" parent="GameViewport/HPBoxes"]
+z_index = 6
 layout_mode = 2
 
 [node name="Box" type="NinePatchRect" parent="GameViewport/HPBoxes/Ralsei"]
+layout_mode = 0
 offset_left = 45.0
 offset_top = 153.0
 offset_right = 99.0
@@ -487,6 +487,7 @@ texture = ExtResource("12_0cp0l")
 centered = false
 
 [node name="Label" type="Label" parent="GameViewport/HPBoxes/Ralsei"]
+layout_mode = 0
 offset_left = 68.0
 offset_top = 176.0
 offset_right = 92.0
@@ -614,14 +615,14 @@ origin_sprite = NodePath("Sprite")
 delta = 0.1
 path = NodePath("phantoms")
 
-[node name="CPUParticles2D" type="GPUParticles2D" parent="GameViewport/RoaringKnight"]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="GameViewport/RoaringKnight"]
 position = Vector2(201, 97)
 amount = 16
 texture = ExtResource("6_272bh")
 fixed_fps = 25
-interpolate = false
-draw_order = 0
-process_material = SubResource("ParticleProcessMaterial_5vw27")
+gravity = Vector2(250, 10.76)
+color = Color(0.521141, 0.521141, 0.521141, 1)
+color_ramp = SubResource("Gradient_5vw27")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="GameViewport/RoaringKnight"]
 texture_filter = 1
@@ -678,7 +679,7 @@ speed_scale = 3.5
 
 [node name="Kris" type="Sprite2D" parent="GameViewport"]
 z_index = 1
-position = Vector2(52, 92)
+position = Vector2(22, 92)
 texture = ExtResource("17_getpj")
 
 [node name="Sword" type="Sprite2D" parent="GameViewport/Kris"]
@@ -694,7 +695,7 @@ autoplay = "kris_idle"
 
 [node name="Susie" type="Sprite2D" parent="GameViewport"]
 z_index = 1
-position = Vector2(51, 121)
+position = Vector2(21, 121)
 texture = ExtResource("19_d13ii")
 
 [node name="Axe" type="Sprite2D" parent="GameViewport/Susie"]
@@ -710,7 +711,7 @@ autoplay = "idle"
 
 [node name="Ralsei" type="Sprite2D" parent="GameViewport"]
 z_index = 1
-position = Vector2(48, 151)
+position = Vector2(18, 151)
 texture = ExtResource("18_ryguw")
 
 [node name="ground" type="Sprite2D" parent="GameViewport"]
