@@ -1,5 +1,6 @@
-[gd_scene load_steps=50 format=4 uid="uid://c32snvm7b4jpk"]
+[gd_scene load_steps=51 format=4 uid="uid://c32snvm7b4jpk"]
 
+[ext_resource type="Script" uid="uid://brsosfwyl2i1f" path="res://main.gd" id="1_1u8w0"]
 [ext_resource type="Script" uid="uid://xse13t6hpjfn" path="res://scripts/selector.gd" id="1_7mycd"]
 [ext_resource type="Script" uid="uid://cl724rjxxk7vq" path="res://roaring_knight.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://cr6i4kwlu5fuh" path="res://tween_if_clone.gd" id="2_0xm2m"]
@@ -336,6 +337,7 @@ _data = {
 
 [node name="Node2D" type="Node2D"]
 texture_filter = 1
+script = ExtResource("1_1u8w0")
 
 [node name="CRT" type="ColorRect" parent="."]
 z_index = 999
