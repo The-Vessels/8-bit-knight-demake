@@ -14,9 +14,12 @@ func _process(dt : float):
 	self.position.y = lerp(self.position.y, target_y, 1)
 
 	
-	#var frame : int = origin_sprite.frame;
-	#var anim : StringName = origin_sprite.animation;
-	#if (frame != prev_frame || anim != prev_anim) || time_off > delta:
+	var frame : int = origin_sprite.frame;
+	var anim : StringName = origin_sprite.animation;
+	if (frame != prev_frame || anim != prev_anim):
+		$CPUParticles2D.texture = origin_sprite.sprite_frames.get_frame_texture(anim,frame);
+		prev_frame = frame;
+		prev_anim = anim;
 	#	spawn_phantom(anim,frame);
 	#	time_off = 0.0;
 		
