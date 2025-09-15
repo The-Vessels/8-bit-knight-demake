@@ -27,6 +27,7 @@ func anim(type: int) -> void: # 0 is go down, 1 is come up
 		$MarginContainer/ColorRect/Heal.show()
 		$MarginContainer/ColorRect/Soul.show()
 		canmove = true
+	
 func get_btn(idx: int) -> Label:
 	return $MarginContainer/ColorRect.get_child(idx + 1)
 	
@@ -57,7 +58,12 @@ func _input(event: InputEvent) -> void:
 				await get_tree().create_timer(0.05).timeout
 			match choice:
 				0: # FIGHT
-					print("FIGHT")
+					$MarginContainer/ColorRect/Attack.hide()
+					$MarginContainer/ColorRect/Prompt.hide()
+					$MarginContainer/ColorRect/Defend.hide()
+					$MarginContainer/ColorRect/Heal.hide()
+					$MarginContainer/ColorRect/Soul.hide()
+					$MarginContainer/ColorRect/attack.show()
 				1: # DEFEND
 					print("DEFEND")
 				2: # HEAL

@@ -12,7 +12,7 @@ func _process(dt : float):
 	time_off += dt;
 	time += dt;
 	var target_y = self.position.y + sin(time) / 10.0
-	self.position.y = lerp(self.position.y, target_y, 100 * dt)
+	self.position.y = lerp(self.position.y, target_y, 250 * dt)
 
 	
 	var frame : int = origin_sprite.frame;

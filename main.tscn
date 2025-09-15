@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://c32snvm7b4jpk"]
+[gd_scene load_steps=55 format=4 uid="uid://c32snvm7b4jpk"]
 
 [ext_resource type="Script" uid="uid://brsosfwyl2i1f" path="res://main.gd" id="1_1u8w0"]
 [ext_resource type="Script" uid="uid://xse13t6hpjfn" path="res://scripts/selector.gd" id="1_7mycd"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dyt8ehtfeoppy" path="res://assets/sprites/soul/soul.png" id="3_5vw27"]
 [ext_resource type="Texture2D" uid="uid://ch0svlwn0hihs" path="res://FUCKINGKNIGHT.png" id="6_272bh"]
 [ext_resource type="Texture2D" uid="uid://dpaacfgegoi2r" path="res://assets/sprites/reference.png" id="6_kek77"]
+[ext_resource type="Script" uid="uid://xw0qwfrm06tg" path="res://bar.gd" id="7_0odxb"]
 [ext_resource type="Texture2D" uid="uid://1kjx00rw73cp" path="res://RK/Slash.png" id="7_ryguw"]
 [ext_resource type="AudioStream" uid="uid://bh1cbbsdgrmwt" path="res://BLACK KNIFE 8bit.ogg" id="8_5vw27"]
 [ext_resource type="Texture2D" uid="uid://c5rtjafe57tce" path="res://assets/sprites/knight_fight_bg.png" id="9_2cqfq"]
@@ -54,6 +55,19 @@ viewport_path = NodePath("GameViewport")
 
 [sub_resource type="Theme" id="Theme_4c57u"]
 default_font = ExtResource("2_272bh")
+
+[sub_resource type="Gradient" id="Gradient_1u8w0"]
+offsets = PackedFloat32Array(0.142857)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0odxb"]
+gradient = SubResource("Gradient_1u8w0")
+width = 6
+height = 18
+
+[sub_resource type="Gradient" id="Gradient_lswn8"]
+offsets = PackedFloat32Array(0, 0.446667)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 
 [sub_resource type="Gradient" id="Gradient_5vw27"]
 offsets = PackedFloat32Array(0, 0.38)
@@ -340,6 +354,7 @@ texture_filter = 1
 script = ExtResource("1_1u8w0")
 
 [node name="CRT" type="ColorRect" parent="."]
+visible = false
 z_index = 999
 texture_filter = 1
 material = SubResource("ShaderMaterial_1u8w0")
@@ -364,7 +379,7 @@ centered = false
 [node name="Selector" type="ColorRect" parent="GameViewport"]
 offset_left = 3.0
 offset_top = 200.0
-offset_right = 251.0
+offset_right = 255.175
 offset_bottom = 223.0
 script = ExtResource("1_7mycd")
 
@@ -373,6 +388,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 2.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 1
@@ -430,6 +447,42 @@ position = Vector2(76, 2)
 texture = ExtResource("3_5vw27")
 centered = false
 offset = Vector2(-9, 5)
+
+[node name="attack" type="Control" parent="GameViewport/Selector/MarginContainer/ColorRect"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="GameViewport/Selector/MarginContainer/ColorRect/attack"]
+offset_left = 4.885
+offset_top = 2.55
+offset_right = 11.21
+offset_bottom = 20.865
+color = Color(0.258824, 1, 1, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="GameViewport/Selector/MarginContainer/ColorRect/attack"]
+offset_left = 5.5
+offset_top = 3.99
+offset_right = 9.045
+offset_bottom = 19.77
+color = Color(0, 0, 0, 1)
+
+[node name="bar" type="ColorRect" parent="GameViewport/Selector/MarginContainer/ColorRect/attack"]
+z_index = 2
+offset_left = 150.0
+offset_top = 2.55
+offset_right = 156.325
+offset_bottom = 20.865
+script = ExtResource("7_0odxb")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="GameViewport/Selector/MarginContainer/ColorRect/attack/bar"]
+z_as_relative = false
+position = Vector2(2.735, 9.25999)
+texture = SubResource("GradientTexture2D_0odxb")
+fixed_fps = 25
+gravity = Vector2(0, 0)
+color_ramp = SubResource("Gradient_lswn8")
 
 [node name="UiSFX" type="AudioStreamPlayer" parent="GameViewport/Selector"]
 
