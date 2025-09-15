@@ -27,8 +27,8 @@ Soulreference="*res://scripts/soulreference.gd"
 
 [display]
 
-window/size/viewport_width=256
-window/size/viewport_height=224
+window/size/viewport_width=512
+window/size/viewport_height=448
 window/size/mode=2
 window/size/window_width_override=1536
 window/size/window_height_override=1344
