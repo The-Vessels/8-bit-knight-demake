@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dyt8ehtfeoppy" path="res://assets/sprites/soul/soul.png" id="3_5vw27"]
 [ext_resource type="Texture2D" uid="uid://ch0svlwn0hihs" path="res://FUCKINGKNIGHT.png" id="6_272bh"]
 [ext_resource type="Texture2D" uid="uid://dpaacfgegoi2r" path="res://assets/sprites/reference.png" id="6_kek77"]
-[ext_resource type="Script" uid="uid://xw0qwfrm06tg" path="res://bar.gd" id="7_0odxb"]
+[ext_resource type="Script" path="res://bar.gd" id="7_0odxb"]
 [ext_resource type="Texture2D" uid="uid://1kjx00rw73cp" path="res://RK/Slash.png" id="7_ryguw"]
 [ext_resource type="AudioStream" uid="uid://bh1cbbsdgrmwt" path="res://BLACK KNIFE 8bit.ogg" id="8_5vw27"]
 [ext_resource type="Texture2D" uid="uid://c5rtjafe57tce" path="res://assets/sprites/knight_fight_bg.png" id="9_2cqfq"]
@@ -354,7 +354,6 @@ texture_filter = 1
 script = ExtResource("1_1u8w0")
 
 [node name="CRT" type="ColorRect" parent="."]
-visible = false
 z_index = 999
 texture_filter = 1
 material = SubResource("ShaderMaterial_1u8w0")
@@ -455,6 +454,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="ColorRect" type="ColorRect" parent="GameViewport/Selector/MarginContainer/ColorRect/attack"]
+layout_mode = 0
 offset_left = 4.885
 offset_top = 2.55
 offset_right = 11.21
@@ -462,6 +462,7 @@ offset_bottom = 20.865
 color = Color(0.258824, 1, 1, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="GameViewport/Selector/MarginContainer/ColorRect/attack"]
+layout_mode = 0
 offset_left = 5.5
 offset_top = 3.99
 offset_right = 9.045
@@ -470,6 +471,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="bar" type="ColorRect" parent="GameViewport/Selector/MarginContainer/ColorRect/attack"]
 z_index = 2
+layout_mode = 0
 offset_left = 150.0
 offset_top = 2.55
 offset_right = 156.325
