@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://bxrbtjsl6qfvf" path="res://scripts/bullet.gd" id="1_v7oki"]
 
 [node name="Bullet" type="Area2D"]
+collision_mask = 2
 script = ExtResource("1_v7oki")
 damage = 5
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,8 +1,8 @@
-[gd_scene load_steps=44 format=4 uid="uid://c32snvm7b4jpk"]
+[gd_scene load_steps=46 format=4 uid="uid://c32snvm7b4jpk"]
 
-[ext_resource type="Script" path="res://scripts/selector.gd" id="1_7mycd"]
+[ext_resource type="Script" uid="uid://xse13t6hpjfn" path="res://scripts/selector.gd" id="1_7mycd"]
 [ext_resource type="Script" uid="uid://cl724rjxxk7vq" path="res://roaring_knight.gd" id="1_ig7tw"]
-[ext_resource type="Shader" uid="uid://wsnhy7gfog38" path="res://crt.gdshader" id="1_ryguw"]
+[ext_resource type="Shader" path="res://crt.gdshader" id="1_ryguw"]
 [ext_resource type="Script" uid="uid://cr6i4kwlu5fuh" path="res://tween_if_clone.gd" id="2_0xm2m"]
 [ext_resource type="FontFile" uid="uid://bm7yvu5ht052t" path="res://fonts/main.ttf" id="2_272bh"]
 [ext_resource type="Texture2D" uid="uid://dyt8ehtfeoppy" path="res://assets/sprites/soul/soul.png" id="3_5vw27"]
