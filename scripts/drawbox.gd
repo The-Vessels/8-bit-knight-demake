@@ -3,6 +3,7 @@ extends StaticBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	clip_children = CanvasItem.CLIP_CHILDREN_AND_DRAW
 	var boxpos = Vector2(DisplayServer.window_get_size() / 2)
 	print(boxsize)
 

@@ -19,5 +19,5 @@ func _process(delta: float) -> void:
 
 func _spawn_attack():
 	var attack = attack_scene.instantiate()
-	attack.global_position = $Battlebox.position + ($Battlebox.box_size / 2)
+	attack.global_position = $Battlebox.position + ($Battlebox.boxsize / 2)
 	$Battlebox.add_child(attack)

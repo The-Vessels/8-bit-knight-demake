@@ -19,6 +19,7 @@ func _ready() -> void:
 	
 func damage(dmg):
 	if $AnimationPlayer.current_animation != "hurt":
+		$AnimationPlayer.play("hurt")
 		$AudioStreamPlayer.play()
 		await get_tree().create_timer(1.5).timeout
 		$AnimationPlayer.play("RESET")

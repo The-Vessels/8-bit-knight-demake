@@ -19,5 +19,6 @@ func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 		$AnimationTree.play("flash")
 		$CollisionShape2D.disabled = false
 		top_level = false
+		global_position = Soulreference.globalPosition + (-transform.y * 50)
 	if anim_name == "flash":
 		queue_free()
