@@ -364,7 +364,6 @@ texture_filter = 1
 script = ExtResource("1_1u8w0")
 
 [node name="CRT" type="ColorRect" parent="."]
-visible = false
 z_index = 999
 texture_filter = 1
 material = SubResource("ShaderMaterial_1u8w0")
