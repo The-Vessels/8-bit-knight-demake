@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://c32snvm7b4jpk"]
+[gd_scene load_steps=65 format=4 uid="uid://c32snvm7b4jpk"]
 
 [ext_resource type="Script" uid="uid://brsosfwyl2i1f" path="res://main.gd" id="1_1u8w0"]
 [ext_resource type="Script" uid="uid://xse13t6hpjfn" path="res://scripts/selector.gd" id="1_7mycd"]
@@ -6,14 +6,24 @@
 [ext_resource type="Script" uid="uid://cr6i4kwlu5fuh" path="res://tween_if_clone.gd" id="2_0xm2m"]
 [ext_resource type="FontFile" uid="uid://bm7yvu5ht052t" path="res://fonts/main.ttf" id="2_272bh"]
 [ext_resource type="Texture2D" uid="uid://dyt8ehtfeoppy" path="res://assets/sprites/soul/soul.png" id="3_5vw27"]
+[ext_resource type="Texture2D" uid="uid://bp62jv7ao38wp" path="res://assets/sprites/hp/hpbox/kris.png" id="4_4k2k6"]
+[ext_resource type="Texture2D" uid="uid://cgx8coak5ahg5" path="res://assets/sprites/hp/hpname/kris.png" id="5_0rl1p"]
 [ext_resource type="Texture2D" uid="uid://ch0svlwn0hihs" path="res://FUCKINGKNIGHT.png" id="6_272bh"]
 [ext_resource type="Texture2D" uid="uid://dpaacfgegoi2r" path="res://assets/sprites/reference.png" id="6_kek77"]
+[ext_resource type="Texture2D" uid="uid://cwdqwi5uldtqf" path="res://assets/sprites/hp/hpsymbol/kris.png" id="6_ok6jj"]
 [ext_resource type="Script" uid="uid://xw0qwfrm06tg" path="res://bar.gd" id="7_0odxb"]
+[ext_resource type="FontFile" uid="uid://bn7on5xdgfoj3" path="res://assets/fonts/hpnumbers.png" id="7_0rl1p"]
+[ext_resource type="Texture2D" uid="uid://p5n57vfvurqv" path="res://assets/sprites/hp/hpbox/susie.png" id="7_facbu"]
 [ext_resource type="Texture2D" uid="uid://1kjx00rw73cp" path="res://RK/Slash.png" id="7_ryguw"]
 [ext_resource type="AudioStream" uid="uid://bh1cbbsdgrmwt" path="res://BLACK KNIFE 8bit.ogg" id="8_5vw27"]
+[ext_resource type="Texture2D" uid="uid://etg1edenhebe" path="res://assets/sprites/hp/hpname/susie.png" id="8_b1qrp"]
 [ext_resource type="Texture2D" uid="uid://c5rtjafe57tce" path="res://assets/sprites/knight_fight_bg.png" id="9_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://cbjq6m623um4d" path="res://assets/sprites/hp/hpsymbol/susie.png" id="9_come4"]
+[ext_resource type="Texture2D" uid="uid://d426p3k6bgxu" path="res://assets/sprites/hp/hpbox/ralsei.png" id="10_h8e4i"]
 [ext_resource type="Texture2D" uid="uid://cly1s20x52x0o" path="res://assets/sprites/knight_fight_ground.png" id="10_yaehf"]
+[ext_resource type="Texture2D" uid="uid://cx5aohxff8a46" path="res://assets/sprites/hp/hpname/ralsei.png" id="11_4lmeg"]
 [ext_resource type="Texture2D" uid="uid://dv6pyqpn7p8ad" path="res://assets/sprites/fountain/knight_fight_fountain_1.png" id="11_074og"]
+[ext_resource type="Texture2D" uid="uid://dis17eqmjk73c" path="res://assets/sprites/hp/hpsymbol/ralsei.png" id="12_0cp0l"]
 [ext_resource type="Texture2D" uid="uid://dw7kffjsrt7io" path="res://assets/sprites/fountain/knight_fight_fountain_2.png" id="12_cegan"]
 [ext_resource type="Texture2D" uid="uid://dmph1bhahhwm5" path="res://assets/sprites/fountain/knight_fight_fountain_3.png" id="13_82xsv"]
 [ext_resource type="Texture2D" uid="uid://6x278e8ujmvi" path="res://assets/sprites/fountain/knight_fight_fountain_4.png" id="14_getpj"]
@@ -376,6 +386,116 @@ z_index = 999
 texture = ExtResource("6_kek77")
 centered = false
 
+[node name="HPBoxes" type="HBoxContainer" parent="GameViewport"]
+
+[node name="Kris" type="Control" parent="GameViewport/HPBoxes"]
+custom_minimum_size = Vector2(52, 0)
+layout_mode = 2
+
+[node name="Box" type="NinePatchRect" parent="GameViewport/HPBoxes/Kris"]
+offset_left = 45.0
+offset_top = 153.0
+offset_right = 99.0
+offset_bottom = 198.0
+texture = ExtResource("4_4k2k6")
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Name" type="Sprite2D" parent="GameViewport/HPBoxes/Kris"]
+position = Vector2(52, 165)
+texture = ExtResource("5_0rl1p")
+centered = false
+
+[node name="Symbol" type="Sprite2D" parent="GameViewport/HPBoxes/Kris"]
+position = Vector2(54, 179)
+texture = ExtResource("6_ok6jj")
+centered = false
+
+[node name="Label" type="Label" parent="GameViewport/HPBoxes/Kris"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 176.0
+offset_right = 92.0
+offset_bottom = 190.0
+theme_override_fonts/font = ExtResource("7_0rl1p")
+theme_override_font_sizes/font_size = 14
+text = "160"
+
+[node name="Susie" type="Control" parent="GameViewport/HPBoxes"]
+custom_minimum_size = Vector2(52, 0)
+layout_mode = 2
+
+[node name="Box" type="NinePatchRect" parent="GameViewport/HPBoxes/Susie"]
+offset_left = 45.0
+offset_top = 153.0
+offset_right = 99.0
+offset_bottom = 198.0
+texture = ExtResource("7_facbu")
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Name" type="Sprite2D" parent="GameViewport/HPBoxes/Susie"]
+position = Vector2(52, 165)
+texture = ExtResource("8_b1qrp")
+centered = false
+
+[node name="Symbol" type="Sprite2D" parent="GameViewport/HPBoxes/Susie"]
+position = Vector2(54, 179)
+texture = ExtResource("9_come4")
+centered = false
+
+[node name="Label" type="Label" parent="GameViewport/HPBoxes/Susie"]
+offset_left = 68.0
+offset_top = 176.0
+offset_right = 92.0
+offset_bottom = 190.0
+theme_override_fonts/font = ExtResource("7_0rl1p")
+theme_override_font_sizes/font_size = 14
+text = "190"
+
+[node name="Ralsei" type="Control" parent="GameViewport/HPBoxes"]
+layout_mode = 2
+
+[node name="Box" type="NinePatchRect" parent="GameViewport/HPBoxes/Ralsei"]
+offset_left = 45.0
+offset_top = 153.0
+offset_right = 99.0
+offset_bottom = 198.0
+texture = ExtResource("10_h8e4i")
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Name" type="Sprite2D" parent="GameViewport/HPBoxes/Ralsei"]
+position = Vector2(52, 165)
+texture = ExtResource("11_4lmeg")
+centered = false
+
+[node name="Symbol" type="Sprite2D" parent="GameViewport/HPBoxes/Ralsei"]
+position = Vector2(54, 179)
+texture = ExtResource("12_0cp0l")
+centered = false
+
+[node name="Label" type="Label" parent="GameViewport/HPBoxes/Ralsei"]
+offset_left = 68.0
+offset_top = 176.0
+offset_right = 92.0
+offset_bottom = 190.0
+theme_override_fonts/font = ExtResource("7_0rl1p")
+theme_override_font_sizes/font_size = 14
+text = "140"
+
 [node name="Selector" type="ColorRect" parent="GameViewport"]
 offset_left = 3.0
 offset_top = 200.0
@@ -455,6 +575,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="ColorRect" type="ColorRect" parent="GameViewport/Selector/MarginContainer/ColorRect/attack"]
+layout_mode = 0
 offset_left = 4.885
 offset_top = 2.55
 offset_right = 11.21
@@ -462,6 +583,7 @@ offset_bottom = 20.865
 color = Color(0.258824, 1, 1, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="GameViewport/Selector/MarginContainer/ColorRect/attack"]
+layout_mode = 0
 offset_left = 5.5
 offset_top = 3.99
 offset_right = 9.045
@@ -470,6 +592,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="bar" type="ColorRect" parent="GameViewport/Selector/MarginContainer/ColorRect/attack"]
 z_index = 2
+layout_mode = 0
 offset_left = 150.0
 offset_top = 2.55
 offset_right = 156.325
