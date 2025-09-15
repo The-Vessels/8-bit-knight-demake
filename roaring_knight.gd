@@ -7,12 +7,11 @@ var time_off : float = 0.0;
 var prev_frame : int = -1;
 var prev_anim : StringName;
 var time : float = 0;
-
 func _process(dt : float):
 	time_off += dt;
 	time += dt;
 	var target_y = self.position.y + sin(time) / 10.0
-	self.position.y = lerp(self.position.y, target_y, 250 * dt)
+	self.position.y = lerp(self.position.y, target_y, 1)
 
 	
 	var frame : int = origin_sprite.frame;
