@@ -1,14 +1,55 @@
-[gd_scene load_steps=11 format=4 uid="uid://c32snvm7b4jpk"]
+[gd_scene load_steps=44 format=4 uid="uid://c32snvm7b4jpk"]
 
 [ext_resource type="Script" path="res://scripts/selector.gd" id="1_7mycd"]
 [ext_resource type="Script" uid="uid://cl724rjxxk7vq" path="res://roaring_knight.gd" id="1_ig7tw"]
+[ext_resource type="Shader" uid="uid://wsnhy7gfog38" path="res://crt.gdshader" id="1_ryguw"]
 [ext_resource type="Script" uid="uid://cr6i4kwlu5fuh" path="res://tween_if_clone.gd" id="2_0xm2m"]
 [ext_resource type="FontFile" uid="uid://bm7yvu5ht052t" path="res://fonts/main.ttf" id="2_272bh"]
 [ext_resource type="Texture2D" uid="uid://dyt8ehtfeoppy" path="res://assets/sprites/soul/soul.png" id="3_5vw27"]
+[ext_resource type="Texture2D" uid="uid://ch0svlwn0hihs" path="res://FUCKINGKNIGHT.png" id="6_272bh"]
 [ext_resource type="Texture2D" uid="uid://dpaacfgegoi2r" path="res://assets/sprites/reference.png" id="6_kek77"]
+[ext_resource type="Texture2D" uid="uid://1kjx00rw73cp" path="res://RK/Slash.png" id="7_ryguw"]
+[ext_resource type="AudioStream" uid="uid://bh1cbbsdgrmwt" path="res://BLACK KNIFE 8bit.ogg" id="8_5vw27"]
+[ext_resource type="Texture2D" uid="uid://c5rtjafe57tce" path="res://assets/sprites/knight_fight_bg.png" id="9_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://cly1s20x52x0o" path="res://assets/sprites/knight_fight_ground.png" id="10_yaehf"]
+[ext_resource type="Texture2D" uid="uid://dv6pyqpn7p8ad" path="res://assets/sprites/fountain/knight_fight_fountain_1.png" id="11_074og"]
+[ext_resource type="Texture2D" uid="uid://dw7kffjsrt7io" path="res://assets/sprites/fountain/knight_fight_fountain_2.png" id="12_cegan"]
+[ext_resource type="Texture2D" uid="uid://dmph1bhahhwm5" path="res://assets/sprites/fountain/knight_fight_fountain_3.png" id="13_82xsv"]
+[ext_resource type="Texture2D" uid="uid://6x278e8ujmvi" path="res://assets/sprites/fountain/knight_fight_fountain_4.png" id="14_getpj"]
+[ext_resource type="Texture2D" uid="uid://uyimhim7ifoq" path="res://assets/sprites/fountain/knight_fight_fountain_5.png" id="15_ryguw"]
+[ext_resource type="Texture2D" uid="uid://bmptt48oqpp1b" path="res://assets/sprites/fountain/knight_fight_fountain_6.png" id="16_d13ii"]
+[ext_resource type="Texture2D" uid="uid://ck5h6q8mei4y8" path="res://assets/sprites/party/kris.png" id="17_getpj"]
+[ext_resource type="Texture2D" uid="uid://cpnmq62lf7t8o" path="res://assets/sprites/party/ralsei.png" id="18_ryguw"]
+[ext_resource type="Texture2D" uid="uid://b6nqctcpkiok8" path="res://assets/sprites/party/susie.png" id="19_d13ii"]
+[ext_resource type="Texture2D" uid="uid://b27ftbsshe0do" path="res://assets/sprites/party/sword.png" id="20_1u8w0"]
+[ext_resource type="Texture2D" uid="uid://c4jjv0hg35xyc" path="res://assets/sprites/party/axe.png" id="21_0odxb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d13ii"]
+shader = ExtResource("1_ryguw")
+shader_parameter/mask_type = 1
+shader_parameter/curve = 0.0
+shader_parameter/sharpness = 0.666667
+shader_parameter/color_offset = 0.0
+shader_parameter/mask_brightness = 1.0
+shader_parameter/scanline_brightness = 1.0
+shader_parameter/min_scanline_thickness = 0.5
+shader_parameter/aspect = 0.75
+shader_parameter/wobble_strength = 0.0
 
 [sub_resource type="Theme" id="Theme_4c57u"]
 default_font = ExtResource("2_272bh")
+
+[sub_resource type="Gradient" id="Gradient_5vw27"]
+offsets = PackedFloat32Array(0, 0.38)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_272bh"]
+gradient = SubResource("Gradient_5vw27")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5vw27"]
+particle_flag_disable_z = true
+gravity = Vector3(250, 0, 0)
+color_ramp = SubResource("GradientTexture1D_272bh")
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_7mycd"]
 _data = PackedByteArray("AAADAAUAAAABAAAAHwAAACAAAADUAAAAUklGRswAAABXRUJQVlA4TMAAAAAvHsAHEB8gEEhS2R9yDYFAksv+jAsEkqT2R3v+A/BXAdzatpZFB4evDJypgibu+yUatyr+mPx9IxEuX5tYCxH9nwBgueTi4/+l5YhFAB7/eO8By/5DXgfm613sAVXpowAspR5Afql6TFYP8Lj40roFjzvzsgeVfUt1wCQH+JRmZ1EaN+tUu3LnzTqPo+Us1h4ow+fssx6TY/5YN0/BPK/n0i4lqy9NkvsDR0lvf4F5KrOvEcAypXDGMnL5vt+7pgA=")
@@ -17,6 +58,30 @@ size_override = Vector2(31, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_272bh"]
 atlas = SubResource("PortableCompressedTexture2D_7mycd")
 region = Rect2(0, 0, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryguw"]
+atlas = ExtResource("7_ryguw")
+region = Rect2(0, 0, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d13ii"]
+atlas = ExtResource("7_ryguw")
+region = Rect2(31, 0, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1u8w0"]
+atlas = ExtResource("7_ryguw")
+region = Rect2(62, 0, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0odxb"]
+atlas = ExtResource("7_ryguw")
+region = Rect2(93, 0, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lswn8"]
+atlas = ExtResource("7_ryguw")
+region = Rect2(124, 0, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6jrf"]
+atlas = ExtResource("7_ryguw")
+region = Rect2(155, 0, 31, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5vw27"]
 animations = [{
@@ -27,13 +92,206 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_ryguw")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_d13ii")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_1u8w0")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_0odxb")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_lswn8")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_a6jrf")
+}],
+"loop": true,
+"name": &"slash",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_kek77"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.447059, 0.796078, 0.65098, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5vw27"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.76),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.17, 0.46, 0.76),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.8), Color(1, 1, 1, 0.529412), Color(1, 1, 1, 0.286275), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:color")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.17, 0.46),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.447059, 0.796078, 0.65098, 1), Color(0.447059, 0.568627, 0.65098, 1), Color(0.447059, 0.270588, 0.65098, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4c57u"]
+_data = {
+&"RESET": SubResource("Animation_kek77"),
+&"new_animation": SubResource("Animation_5vw27")
+}
+
+[sub_resource type="Animation" id="Animation_ryguw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sword:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, -2)]
+}
+
+[sub_resource type="Animation" id="Animation_getpj"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Axe:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.86, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(-9, 0), Vector2(-9, -1), Vector2(-9, -1), Vector2(-9, 0), Vector2(-9, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_d13ii"]
+resource_name = "kris_idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sword:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(12, -2), Vector2(12, -1), Vector2(12, -2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1u8w0"]
+_data = {
+&"RESET": SubResource("Animation_ryguw"),
+&"idle": SubResource("Animation_getpj"),
+&"kris_idle": SubResource("Animation_d13ii")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1u8w0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_074og")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_cegan")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_82xsv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_getpj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ryguw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_d13ii")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.5
 }]
 
 [node name="Node2D" type="Node2D"]
 texture_filter = 1
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+z_index = 999
+material = SubResource("ShaderMaterial_d13ii")
+
 [node name="Reference" type="Sprite2D" parent="."]
-z_index = -2
+visible = false
+modulate = Color(1, 1, 1, 0.301961)
+z_index = 999
 texture = ExtResource("6_kek77")
 centered = false
 
@@ -107,11 +365,22 @@ texture = ExtResource("3_5vw27")
 centered = false
 offset = Vector2(-9, 5)
 
+[node name="UiSFX" type="AudioStreamPlayer" parent="Selector"]
+
 [node name="RoaringKnight" type="Node2D" parent="." node_paths=PackedStringArray("origin_sprite", "path")]
 script = ExtResource("1_ig7tw")
 origin_sprite = NodePath("Sprite")
 delta = 0.1
 path = NodePath("phantoms")
+
+[node name="CPUParticles2D" type="GPUParticles2D" parent="RoaringKnight"]
+position = Vector2(201, 97)
+amount = 16
+texture = ExtResource("6_272bh")
+fixed_fps = 25
+interpolate = false
+draw_order = 0
+process_material = SubResource("ParticleProcessMaterial_5vw27")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="RoaringKnight"]
 texture_filter = 1
@@ -139,7 +408,83 @@ metadata/_aseprite_wizard_config_ = {
 "source_uid": 4659211799327366307
 }
 metadata/_aseprite_wizard_source_file_hash_ = "6506459e03c3bb13c67e545e7a3e83c4"
+metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RoaringKnight"]
 
 [node name="phantoms" type="Node2D" parent="RoaringKnight"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_5vw27")
+volume_db = -0.2
+autoplay = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -3.0
+offset_top = -2.0
+offset_right = 260.0
+offset_bottom = 226.0
+color = Color(0.447059, 0.796078, 0.65098, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+libraries = {
+&"": SubResource("AnimationLibrary_4c57u")
+}
+autoplay = "new_animation"
+speed_scale = 3.5
+
+[node name="Kris" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(52, 92)
+texture = ExtResource("17_getpj")
+
+[node name="Sword" type="Sprite2D" parent="Kris"]
+z_index = 1
+position = Vector2(12, -2)
+texture = ExtResource("20_1u8w0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Kris"]
+libraries = {
+&"": SubResource("AnimationLibrary_1u8w0")
+}
+autoplay = "kris_idle"
+
+[node name="Susie" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(51, 121)
+texture = ExtResource("19_d13ii")
+
+[node name="Axe" type="Sprite2D" parent="Susie"]
+z_index = -1
+position = Vector2(-9, 0)
+texture = ExtResource("21_0odxb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Susie"]
+libraries = {
+&"": SubResource("AnimationLibrary_1u8w0")
+}
+autoplay = "idle"
+
+[node name="Ralsei" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(48, 151)
+texture = ExtResource("18_ryguw")
+
+[node name="ground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(128, 112)
+texture = ExtResource("10_yaehf")
+
+[node name="Fountain" type="AnimatedSprite2D" parent="."]
+z_index = -11
+position = Vector2(128, 112)
+sprite_frames = SubResource("SpriteFrames_1u8w0")
+autoplay = "default"
+frame_progress = 0.959281
+
+[node name="bg" type="Sprite2D" parent="."]
+z_index = -999
+position = Vector2(128, 112)
+texture = ExtResource("9_2cqfq")
+metadata/_edit_lock_ = true

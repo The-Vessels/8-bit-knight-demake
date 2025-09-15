@@ -8,6 +8,11 @@
 
 config_version=5
 
+[animation]
+
+warnings/check_invalid_track_paths=false
+warnings/check_angle_interpolation_type_conflicting=false
+
 [application]
 
 config/name="the roaring knight"
@@ -24,9 +29,14 @@ Soulreference="*res://scripts/soulreference.gd"
 
 window/size/viewport_width=256
 window/size/viewport_height=224
+window/size/mode=2
 window/size/window_width_override=1536
 window/size/window_height_override=1344
 window/stretch/mode="viewport"
+
+[dotnet]
+
+project/assembly_name="the roaring knight"
 
 [editor_plugins]
 
