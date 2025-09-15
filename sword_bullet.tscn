@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dur0xm1dtbot6"]
+
+[ext_resource type="Script" uid="uid://h08mykk3lros" path="res://swordbullet.gd" id="1_611tg"]
+[ext_resource type="Texture2D" uid="uid://cqcafl3i20u52" path="res://assets/sprites/fuckingswordsprite.png" id="2_ge6ud"]
+
+[node name="SwordBullet" type="Area2D"]
+rotation = 0.785398
+script = ExtResource("1_611tg")
+metadata/_custom_type_script = "uid://bxrbtjsl6qfvf"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ge6ud")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
