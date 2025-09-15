@@ -37,4 +37,4 @@ func _process(delta: float) -> void:
 		var t = clamp(1.0 - dist / max_dist, 0.0, 1.0)
 		damage = int(lerp(min_damage, max_damage, t))
 		move_speed = 0
-		print("bar.gd, damage is %s" % damage)
+		Global.gprint("bar.gd, damage is %s" % damage)

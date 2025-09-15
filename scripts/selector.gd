@@ -65,6 +65,6 @@ func _input(event: InputEvent) -> void:
 					$MarginContainer/ColorRect/Soul.hide()
 					$MarginContainer/ColorRect/attack.show()
 				1: # DEFEND
-					print("DEFEND")
+					Global.gprint("DEFEND")
 				2: # HEAL
-					print("HEAL")
+					Global.gprint("HEAL")

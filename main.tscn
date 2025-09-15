@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=4 uid="uid://c32snvm7b4jpk"]
+[gd_scene load_steps=62 format=4 uid="uid://c32snvm7b4jpk"]
 
 [ext_resource type="Script" uid="uid://brsosfwyl2i1f" path="res://main.gd" id="1_1u8w0"]
 [ext_resource type="Script" uid="uid://xse13t6hpjfn" path="res://scripts/selector.gd" id="1_7mycd"]
@@ -321,44 +321,6 @@ animations = [{
 "speed": 2.5
 }]
 
-[sub_resource type="Animation" id="Animation_0odxb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-
-[sub_resource type="Animation" id="Animation_1u8w0"]
-resource_name = "new_animation"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible_ratio")
-tracks/0/interp = 0
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [1.0, 0.99, 1.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_lswn8"]
-_data = {
-&"RESET": SubResource("Animation_0odxb"),
-&"new_animation": SubResource("Animation_1u8w0")
-}
-
 [node name="Node2D" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_1u8w0")
@@ -392,6 +354,7 @@ custom_minimum_size = Vector2(52, 0)
 layout_mode = 2
 
 [node name="Box" type="NinePatchRect" parent="GameViewport/HPBoxes/Kris"]
+layout_mode = 0
 offset_left = 45.0
 offset_top = 153.0
 offset_right = 99.0
@@ -429,6 +392,7 @@ custom_minimum_size = Vector2(52, 0)
 layout_mode = 2
 
 [node name="Box" type="NinePatchRect" parent="GameViewport/HPBoxes/Susie"]
+layout_mode = 0
 offset_left = 45.0
 offset_top = 153.0
 offset_right = 99.0
@@ -452,6 +416,7 @@ texture = ExtResource("9_come4")
 centered = false
 
 [node name="Label" type="Label" parent="GameViewport/HPBoxes/Susie"]
+layout_mode = 0
 offset_left = 68.0
 offset_top = 176.0
 offset_right = 92.0
@@ -464,6 +429,7 @@ text = "190"
 layout_mode = 2
 
 [node name="Box" type="NinePatchRect" parent="GameViewport/HPBoxes/Ralsei"]
+layout_mode = 0
 offset_left = 45.0
 offset_top = 153.0
 offset_right = 99.0
@@ -487,6 +453,7 @@ texture = ExtResource("12_0cp0l")
 centered = false
 
 [node name="Label" type="Label" parent="GameViewport/HPBoxes/Ralsei"]
+layout_mode = 0
 offset_left = 68.0
 offset_top = 176.0
 offset_right = 92.0
@@ -732,10 +699,3 @@ z_index = -999
 position = Vector2(128, 112)
 texture = ExtResource("9_2cqfq")
 metadata/_edit_lock_ = true
-
-[node name="Selector_MarginContainer_ColorRect_Prompt#AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_lswn8")
-}
-autoplay = "new_animation"
-speed_scale = 3.5

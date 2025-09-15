@@ -4,16 +4,7 @@ extends StaticBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var boxpos = Vector2(DisplayServer.window_get_size() / 2)
-	print(boxsize)
-
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-
-	
-
-
-
+	Global.gprint(boxsize)
 func _draw_box(boxsize):
 	draw_rect(Rect2(Vector2(0,0),boxsize),Color.BLACK,true,-1.0,false)
 	draw_rect(Rect2(Vector2(0,0),boxsize),Color.GREEN,false,1.0,false)
