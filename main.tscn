@@ -1,8 +1,7 @@
-[gd_scene load_steps=44 format=4 uid="uid://c32snvm7b4jpk"]
+[gd_scene load_steps=47 format=4 uid="uid://c32snvm7b4jpk"]
 
 [ext_resource type="Script" uid="uid://xse13t6hpjfn" path="res://scripts/selector.gd" id="1_7mycd"]
 [ext_resource type="Script" uid="uid://cl724rjxxk7vq" path="res://roaring_knight.gd" id="1_ig7tw"]
-[ext_resource type="Shader" uid="uid://wsnhy7gfog38" path="res://crt.gdshader" id="1_ryguw"]
 [ext_resource type="Script" uid="uid://cr6i4kwlu5fuh" path="res://tween_if_clone.gd" id="2_0xm2m"]
 [ext_resource type="FontFile" uid="uid://bm7yvu5ht052t" path="res://fonts/main.ttf" id="2_272bh"]
 [ext_resource type="Texture2D" uid="uid://dyt8ehtfeoppy" path="res://assets/sprites/soul/soul.png" id="3_5vw27"]
@@ -23,18 +22,34 @@
 [ext_resource type="Texture2D" uid="uid://b6nqctcpkiok8" path="res://assets/sprites/party/susie.png" id="19_d13ii"]
 [ext_resource type="Texture2D" uid="uid://b27ftbsshe0do" path="res://assets/sprites/party/sword.png" id="20_1u8w0"]
 [ext_resource type="Texture2D" uid="uid://c4jjv0hg35xyc" path="res://assets/sprites/party/axe.png" id="21_0odxb"]
+[ext_resource type="Shader" uid="uid://b2a86m4k8i0do" path="res://crt_better.gdshader" id="23_d13ii"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_d13ii"]
-shader = ExtResource("1_ryguw")
-shader_parameter/mask_type = 1
-shader_parameter/curve = 0.0
-shader_parameter/sharpness = 0.666667
-shader_parameter/color_offset = 0.0
-shader_parameter/mask_brightness = 1.0
-shader_parameter/scanline_brightness = 1.0
-shader_parameter/min_scanline_thickness = 0.5
-shader_parameter/aspect = 0.75
-shader_parameter/wobble_strength = 0.0
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1u8w0"]
+shader = ExtResource("23_d13ii")
+shader_parameter/overlay = true
+shader_parameter/resolution = Vector2(512, 448)
+shader_parameter/brightness = 1.4
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.165
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 0.809
+shader_parameter/distort_intensity = 0.05
+shader_parameter/aberration = 0.03
+shader_parameter/noise_opacity = 0.108
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/pixelate = false
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.35
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_d13ii"]
+viewport_path = NodePath("GameViewport")
 
 [sub_resource type="Theme" id="Theme_4c57u"]
 default_font = ExtResource("2_272bh")
@@ -284,25 +299,36 @@ animations = [{
 [node name="Node2D" type="Node2D"]
 texture_filter = 1
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
+[node name="CRT" type="ColorRect" parent="."]
 z_index = 999
-material = SubResource("ShaderMaterial_d13ii")
+texture_filter = 1
+material = SubResource("ShaderMaterial_1u8w0")
+offset_right = 512.0
+offset_bottom = 448.0
 
-[node name="Reference" type="Sprite2D" parent="."]
+[node name="GameRect" type="TextureRect" parent="."]
+offset_right = 512.0
+offset_bottom = 448.0
+texture = SubResource("ViewportTexture_d13ii")
+
+[node name="GameViewport" type="SubViewport" parent="."]
+size = Vector2i(256, 224)
+
+[node name="Reference" type="Sprite2D" parent="GameViewport"]
 visible = false
 modulate = Color(1, 1, 1, 0.301961)
 z_index = 999
 texture = ExtResource("6_kek77")
 centered = false
 
-[node name="Selector" type="ColorRect" parent="."]
+[node name="Selector" type="ColorRect" parent="GameViewport"]
 offset_left = 3.0
 offset_top = 200.0
 offset_right = 251.0
 offset_bottom = 223.0
 script = ExtResource("1_7mycd")
 
-[node name="MarginContainer" type="MarginContainer" parent="Selector"]
+[node name="MarginContainer" type="MarginContainer" parent="GameViewport/Selector"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -314,11 +340,11 @@ theme_override_constants/margin_top = 1
 theme_override_constants/margin_right = 1
 theme_override_constants/margin_bottom = 1
 
-[node name="ColorRect" type="ColorRect" parent="Selector/MarginContainer"]
+[node name="ColorRect" type="ColorRect" parent="GameViewport/Selector/MarginContainer"]
 layout_mode = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Prompt" type="Label" parent="Selector/MarginContainer/ColorRect"]
+[node name="Prompt" type="Label" parent="GameViewport/Selector/MarginContainer/ColorRect"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = -3.0
@@ -329,7 +355,7 @@ theme_override_constants/line_spacing = -6
 text = "WHAT WILL
 YOU DO?"
 
-[node name="Attack" type="Label" parent="Selector/MarginContainer/ColorRect"]
+[node name="Attack" type="Label" parent="GameViewport/Selector/MarginContainer/ColorRect"]
 layout_mode = 0
 offset_left = 76.0
 offset_top = 2.0
@@ -339,7 +365,7 @@ theme = SubResource("Theme_4c57u")
 theme_override_constants/line_spacing = -6
 text = "ATTACK"
 
-[node name="Defend" type="Label" parent="Selector/MarginContainer/ColorRect"]
+[node name="Defend" type="Label" parent="GameViewport/Selector/MarginContainer/ColorRect"]
 layout_mode = 0
 offset_left = 135.0
 offset_top = 2.0
@@ -349,7 +375,7 @@ theme = SubResource("Theme_4c57u")
 theme_override_constants/line_spacing = -6
 text = "DEFEND"
 
-[node name="Heal" type="Label" parent="Selector/MarginContainer/ColorRect"]
+[node name="Heal" type="Label" parent="GameViewport/Selector/MarginContainer/ColorRect"]
 layout_mode = 0
 offset_left = 195.0
 offset_top = 2.0
@@ -359,21 +385,21 @@ theme = SubResource("Theme_4c57u")
 theme_override_constants/line_spacing = -6
 text = "HEAL"
 
-[node name="Soul" type="Sprite2D" parent="Selector/MarginContainer/ColorRect"]
+[node name="Soul" type="Sprite2D" parent="GameViewport/Selector/MarginContainer/ColorRect"]
 position = Vector2(76, 2)
 texture = ExtResource("3_5vw27")
 centered = false
 offset = Vector2(-9, 5)
 
-[node name="UiSFX" type="AudioStreamPlayer" parent="Selector"]
+[node name="UiSFX" type="AudioStreamPlayer" parent="GameViewport/Selector"]
 
-[node name="RoaringKnight" type="Node2D" parent="." node_paths=PackedStringArray("origin_sprite", "path")]
+[node name="RoaringKnight" type="Node2D" parent="GameViewport" node_paths=PackedStringArray("origin_sprite", "path")]
 script = ExtResource("1_ig7tw")
 origin_sprite = NodePath("Sprite")
 delta = 0.1
 path = NodePath("phantoms")
 
-[node name="CPUParticles2D" type="GPUParticles2D" parent="RoaringKnight"]
+[node name="CPUParticles2D" type="GPUParticles2D" parent="GameViewport/RoaringKnight"]
 position = Vector2(201, 97)
 amount = 16
 texture = ExtResource("6_272bh")
@@ -382,7 +408,7 @@ interpolate = false
 draw_order = 0
 process_material = SubResource("ParticleProcessMaterial_5vw27")
 
-[node name="Sprite" type="AnimatedSprite2D" parent="RoaringKnight"]
+[node name="Sprite" type="AnimatedSprite2D" parent="GameViewport/RoaringKnight"]
 texture_filter = 1
 position = Vector2(201, 97)
 sprite_frames = SubResource("SpriteFrames_5vw27")
@@ -410,16 +436,16 @@ metadata/_aseprite_wizard_config_ = {
 metadata/_aseprite_wizard_source_file_hash_ = "6506459e03c3bb13c67e545e7a3e83c4"
 metadata/_edit_lock_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="RoaringKnight"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GameViewport/RoaringKnight"]
 
-[node name="phantoms" type="Node2D" parent="RoaringKnight"]
+[node name="phantoms" type="Node2D" parent="GameViewport/RoaringKnight"]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="GameViewport"]
 stream = ExtResource("8_5vw27")
 volume_db = -0.2
 autoplay = true
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect2" type="ColorRect" parent="GameViewport"]
 visible = false
 offset_left = -3.0
 offset_top = -2.0
@@ -427,63 +453,63 @@ offset_right = 260.0
 offset_bottom = 226.0
 color = Color(0.447059, 0.796078, 0.65098, 1)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GameViewport/ColorRect2"]
 libraries = {
 &"": SubResource("AnimationLibrary_4c57u")
 }
 autoplay = "new_animation"
 speed_scale = 3.5
 
-[node name="Kris" type="Sprite2D" parent="."]
+[node name="Kris" type="Sprite2D" parent="GameViewport"]
 z_index = 1
 position = Vector2(52, 92)
 texture = ExtResource("17_getpj")
 
-[node name="Sword" type="Sprite2D" parent="Kris"]
+[node name="Sword" type="Sprite2D" parent="GameViewport/Kris"]
 z_index = 1
 position = Vector2(12, -2)
 texture = ExtResource("20_1u8w0")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Kris"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GameViewport/Kris"]
 libraries = {
 &"": SubResource("AnimationLibrary_1u8w0")
 }
 autoplay = "kris_idle"
 
-[node name="Susie" type="Sprite2D" parent="."]
+[node name="Susie" type="Sprite2D" parent="GameViewport"]
 z_index = 1
 position = Vector2(51, 121)
 texture = ExtResource("19_d13ii")
 
-[node name="Axe" type="Sprite2D" parent="Susie"]
+[node name="Axe" type="Sprite2D" parent="GameViewport/Susie"]
 z_index = -1
 position = Vector2(-9, 0)
 texture = ExtResource("21_0odxb")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Susie"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GameViewport/Susie"]
 libraries = {
 &"": SubResource("AnimationLibrary_1u8w0")
 }
 autoplay = "idle"
 
-[node name="Ralsei" type="Sprite2D" parent="."]
+[node name="Ralsei" type="Sprite2D" parent="GameViewport"]
 z_index = 1
 position = Vector2(48, 151)
 texture = ExtResource("18_ryguw")
 
-[node name="ground" type="Sprite2D" parent="."]
+[node name="ground" type="Sprite2D" parent="GameViewport"]
 z_index = -1
 position = Vector2(128, 112)
 texture = ExtResource("10_yaehf")
 
-[node name="Fountain" type="AnimatedSprite2D" parent="."]
+[node name="Fountain" type="AnimatedSprite2D" parent="GameViewport"]
 z_index = -11
 position = Vector2(128, 112)
 sprite_frames = SubResource("SpriteFrames_1u8w0")
 autoplay = "default"
 frame_progress = 0.959281
 
-[node name="bg" type="Sprite2D" parent="."]
+[node name="bg" type="Sprite2D" parent="GameViewport"]
 z_index = -999
 position = Vector2(128, 112)
 texture = ExtResource("9_2cqfq")
