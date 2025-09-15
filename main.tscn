@@ -1,7 +1,8 @@
-[gd_scene load_steps=37 format=4 uid="uid://c32snvm7b4jpk"]
+[gd_scene load_steps=39 format=4 uid="uid://c32snvm7b4jpk"]
 
 [ext_resource type="Script" uid="uid://xse13t6hpjfn" path="res://scripts/selector.gd" id="1_7mycd"]
 [ext_resource type="Script" uid="uid://cl724rjxxk7vq" path="res://roaring_knight.gd" id="1_ig7tw"]
+[ext_resource type="Shader" uid="uid://wsnhy7gfog38" path="res://crt.gdshader" id="1_ryguw"]
 [ext_resource type="Script" uid="uid://cr6i4kwlu5fuh" path="res://tween_if_clone.gd" id="2_0xm2m"]
 [ext_resource type="FontFile" uid="uid://bm7yvu5ht052t" path="res://fonts/main.ttf" id="2_272bh"]
 [ext_resource type="Texture2D" uid="uid://dyt8ehtfeoppy" path="res://assets/sprites/soul/soul.png" id="3_5vw27"]
@@ -21,6 +22,18 @@
 [ext_resource type="Texture2D" uid="uid://b6nqctcpkiok8" path="res://assets/sprites/party/susie.png" id="19_d13ii"]
 [ext_resource type="Texture2D" uid="uid://b27ftbsshe0do" path="res://assets/sprites/party/sword.png" id="20_1u8w0"]
 [ext_resource type="Texture2D" uid="uid://c4jjv0hg35xyc" path="res://assets/sprites/party/axe.png" id="21_0odxb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d13ii"]
+shader = ExtResource("1_ryguw")
+shader_parameter/mask_type = 1
+shader_parameter/curve = 0.0
+shader_parameter/sharpness = 0.666667
+shader_parameter/color_offset = 0.0
+shader_parameter/mask_brightness = 1.0
+shader_parameter/scanline_brightness = 1.0
+shader_parameter/min_scanline_thickness = 0.5
+shader_parameter/aspect = 0.75
+shader_parameter/wobble_strength = 0.0
 
 [sub_resource type="Theme" id="Theme_4c57u"]
 default_font = ExtResource("2_272bh")
@@ -223,6 +236,10 @@ animations = [{
 [node name="Node2D" type="Node2D"]
 texture_filter = 1
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+z_index = 999
+material = SubResource("ShaderMaterial_d13ii")
+
 [node name="Reference" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.301961)
@@ -416,7 +433,7 @@ z_index = -11
 position = Vector2(128, 112)
 sprite_frames = SubResource("SpriteFrames_1u8w0")
 autoplay = "default"
-frame_progress = 0.173371
+frame_progress = 0.959281
 
 [node name="bg" type="Sprite2D" parent="."]
 z_index = -999
