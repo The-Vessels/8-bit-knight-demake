@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cuhvpbw6kppbw"]
+
+[ext_resource type="Script" uid="uid://bh1xcgobywhxu" path="res://scripts/star_storm_attack.gd" id="1_vv73a"]
+[ext_resource type="PackedScene" uid="uid://cbagvyasiqtp5" path="res://battleboxscene.tscn" id="2_56s2p"]
+[ext_resource type="PackedScene" uid="uid://bc36vuyutpk1m" path="res://soul.tscn" id="3_bougj"]
+[ext_resource type="PackedScene" uid="uid://ddqwwhk10d2sa" path="res://star_bullet.tscn" id="4_bougj"]
+
+[node name="StarStormAttack" type="Node2D"]
+position = Vector2(251, 156)
+script = ExtResource("1_vv73a")
+
+[node name="Battlebox" parent="." instance=ExtResource("2_56s2p")]
+position = Vector2(-58, 0)
+
+[node name="Soul" parent="." instance=ExtResource("3_bougj")]
+position = Vector2(-38, 20)
+
+[node name="Stars" type="Node2D" parent="."]
+position = Vector2(102, 35)
+
+[node name="StarBullet" parent="." instance=ExtResource("4_bougj")]
+visible = false

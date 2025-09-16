@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddqwwhk10d2sa"]
+
+[ext_resource type="Script" uid="uid://cirybuir3slsl" path="res://starbullet.gd" id="1_miqbb"]
+[ext_resource type="Texture2D" uid="uid://duqc3iso8tplx" path="res://assets/sprites/fuckingstarthingsprite.png" id="2_miqbb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_miqbb"]
+size = Vector2(7.46875, 8.70312)
+
+[node name="StarBullet" type="Area2D"]
+script = ExtResource("1_miqbb")
+metadata/_custom_type_script = "uid://bxrbtjsl6qfvf"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_miqbb")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_miqbb")

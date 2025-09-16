@@ -15,8 +15,8 @@ shader_parameter/hurtcolor = Color(0.686275, 0, 0.0392157, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bx6qs"]
 size = Vector2(7, 7)
 
-[sub_resource type="Animation" id="Animation_55pqc"]
-resource_name = "default"
+[sub_resource type="Animation" id="Animation_3xvnr"]
+length = 0.001
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -29,8 +29,8 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0)
 }
 
-[sub_resource type="Animation" id="Animation_3xvnr"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_55pqc"]
+resource_name = "default"
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
