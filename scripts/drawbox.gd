@@ -1,6 +1,6 @@
 @tool
 extends StaticBody2D
-@onready var boxsize = Vector2(75,75)
+@export var boxsize = Vector2(75,75)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://drkb2x6h5bwix"]
+[gd_scene load_steps=56 format=4 uid="uid://drkb2x6h5bwix"]
 
 [ext_resource type="Texture2D" uid="uid://dpaacfgegoi2r" path="res://assets/sprites/reference.png" id="1_7knny"]
 [ext_resource type="Texture2D" uid="uid://bp62jv7ao38wp" path="res://assets/sprites/hp/hpbox/kris.png" id="2_082n1"]
@@ -50,17 +50,9 @@ height = 18
 offsets = PackedFloat32Array(0, 0.446667)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 
-[sub_resource type="Gradient" id="Gradient_5vw27"]
-offsets = PackedFloat32Array(0, 0.38)
+[sub_resource type="Gradient" id="Gradient_7knny"]
+offsets = PackedFloat32Array(0, 0.6)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_272bh"]
-gradient = SubResource("Gradient_5vw27")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5vw27"]
-particle_flag_disable_z = true
-gravity = Vector3(250, 0, 0)
-color_ramp = SubResource("GradientTexture1D_272bh")
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_7mycd"]
 _data = PackedByteArray("AAADAAUAAAABAAAAHwAAACAAAADUAAAAUklGRswAAABXRUJQVlA4TMAAAAAvHsAHEB8gEEhS2R9yDYFAksv+jAsEkqT2R3v+A/BXAdzatpZFB4evDJypgibu+yUatyr+mPx9IxEuX5tYCxH9nwBgueTi4/+l5YhFAB7/eO8By/5DXgfm613sAVXpowAspR5Afql6TFYP8Lj40roFjzvzsgeVfUt1wCQH+JRmZ1EaN+tUu3LnzTqPo+Us1h4ow+fssx6TY/5YN0/BPK/n0i4lqy9NkvsDR0lvf4F5KrOvEcAypXDGMnL5vt+7pgA=")
@@ -305,6 +297,7 @@ centered = false
 offset_right = 112.0
 
 [node name="Kris" type="Control" parent="HPBoxes"]
+z_index = 85
 custom_minimum_size = Vector2(52, 0)
 layout_mode = 2
 
@@ -534,14 +527,14 @@ origin_sprite = NodePath("Sprite")
 delta = 0.1
 path = NodePath("phantoms")
 
-[node name="CPUParticles2D" type="GPUParticles2D" parent="RoaringKnight"]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="RoaringKnight"]
 position = Vector2(201, 97)
-amount = 16
+amount = 10
 texture = ExtResource("17_87ddb")
+speed_scale = 0.5
 fixed_fps = 25
-interpolate = false
-draw_order = 0
-process_material = SubResource("ParticleProcessMaterial_5vw27")
+gravity = Vector2(250, 0)
+color_ramp = SubResource("Gradient_7knny")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="RoaringKnight"]
 texture_filter = 1
