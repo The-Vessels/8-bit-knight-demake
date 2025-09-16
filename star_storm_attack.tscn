@@ -13,7 +13,7 @@ script = ExtResource("1_vv73a")
 position = Vector2(-58, 0)
 
 [node name="Soul" parent="." instance=ExtResource("3_bougj")]
-position = Vector2(-38, 20)
+position = Vector2(-37, 19)
 
 [node name="Stars" type="Node2D" parent="."]
 position = Vector2(102, 35)

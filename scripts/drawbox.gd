@@ -1,3 +1,4 @@
+@tool
 extends StaticBody2D
 @onready var boxsize = Vector2(75,75)
 
@@ -9,8 +10,6 @@ func _ready() -> void:
 func _draw_box(boxsize):
 	draw_rect(Rect2(Vector2(0,0),boxsize),Color.BLACK,true,-1.0,false)
 	draw_rect(Rect2(Vector2(0,0),boxsize),Color.GREEN,false,1.0,false)
-
-
 
 func _draw() -> void:
 	_draw_box(boxsize)

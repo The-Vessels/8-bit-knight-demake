@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bc36vuyutpk1m"]
+[gd_scene load_steps=11 format=3 uid="uid://bc36vuyutpk1m"]
 
 [ext_resource type="Shader" uid="uid://cnkfc7i5841jm" path="res://soulflicker.gdshader" id="1_nmvwf"]
 [ext_resource type="Script" uid="uid://d1tpp7fo80g4b" path="res://scripts/soul.gd" id="1_nq8dp"]
@@ -11,9 +11,6 @@
 shader = ExtResource("1_nmvwf")
 shader_parameter/mixvalue = 0.0
 shader_parameter/hurtcolor = Color(0.686275, 0, 0.0392157, 1)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bx6qs"]
-size = Vector2(7, 7)
 
 [sub_resource type="Animation" id="Animation_3xvnr"]
 length = 0.001
@@ -74,9 +71,7 @@ script = ExtResource("1_nq8dp")
 [node name="SoulSprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_ln5o6")
 texture = ExtResource("2_nmvwf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_bx6qs")
+centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -85,3 +80,6 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_bx6qs")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 7, 0, 7, 7, 0, 7)
