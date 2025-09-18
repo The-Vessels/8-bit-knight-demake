@@ -49,31 +49,34 @@ func _ready() -> void:
 			players[i].seek(master_pos)
 
 func play_on(aud: AudioStream, type: String):
-	var current: AudioStreamPlayer = null
+	# Mute all currently playing players of the requested type
 	for p in players:
 		if player_types.get(p, "") == type and p.is_playing():
-			current = p
-			break
-	if current != null:
-		current.volume_db = -80.0
+			p.volume_db = -80.0
+
 	var player := AudioStreamPlayer.new()
 	player.stream = aud
 	player.bus = "Master"
 	add_child(player)
 	players.append(player)
 	player_types[player] = type
+
 	if master_player != null:
 		player.seek(master_player.get_playback_position())
-	player.play()
-	player.connect("finished", Callable(self, "_on_play_on_finished").bind(player, current))
 
-func _on_play_on_finished(new_player: AudioStreamPlayer, old_player: AudioStreamPlayer) -> void:
-	if new_player != null and new_player.is_inside_tree():
-		players.erase(new_player)
-		player_types.erase(new_player)
-		new_player.queue_free()
-	if old_player != null:
-		old_player.volume_db = 0.0
+	player.play()
+	player.connect("finished", Callable(self, "_on_play_on_finished").bind(player, type))
+
+func _on_play_on_finished(finished_player: AudioStreamPlayer, type: String) -> void:
+	if finished_player != null and finished_player.is_inside_tree():
+		players.erase(finished_player)
+		player_types.erase(finished_player)
+		finished_player.queue_free()
+	
+	# Unmute all remaining players of this type
+	for p in players:
+		if player_types.get(p, "") == type and p.is_playing():
+			p.volume_db = 0.0
 
 func _process(delta: float) -> void:
 	if master_player == null:
