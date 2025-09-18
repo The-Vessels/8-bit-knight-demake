@@ -107,7 +107,7 @@ func _input(event: InputEvent) -> void:
 			$"../AUD".play_on(move, "Pulse")
 
 		if event.is_action_pressed("confirm"):
-			$"../AUD".play_on(select, "Noise")
+			$"../AUD".play_on(select, "Sawtooth")
 			choice_selected.emit(choice)
 
 		
@@ -123,7 +123,7 @@ func _input(event: InputEvent) -> void:
 			$"../AUD".play_on(move, "Pulse")
 		
 		if event.is_action_pressed("confirm"):
-			$"../AUD".play_on(move, "Noise")
+			$"../AUD".play_on(select, "Sawtooth")
 			heal_selected.emit(healee)
 	
 	#var old_choice := choice

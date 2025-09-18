@@ -536,17 +536,23 @@ script = ExtResource("16_0de7l")
 origin_sprite = NodePath("Sprite")
 delta = 0.1
 path = NodePath("phantoms")
+afterimage_speed = 70.0
+spawn_interval = 0.1
+afterimage_fps = 1
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="RoaringKnight"]
 position = Vector2(201, 97)
+emitting = false
 amount = 10
 texture = ExtResource("17_87ddb")
+lifetime = 1.2
 speed_scale = 0.5
-fixed_fps = 25
+fixed_fps = 10
 gravity = Vector2(250, 0)
 color_ramp = SubResource("Gradient_7knny")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="RoaringKnight"]
+z_index = 2
 texture_filter = 1
 position = Vector2(201, 97)
 sprite_frames = SubResource("SpriteFrames_5vw27")
