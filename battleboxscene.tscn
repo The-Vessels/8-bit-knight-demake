@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbagvyasiqtp5"]
+[gd_scene load_steps=7 format=3 uid="uid://cbagvyasiqtp5"]
 
 [ext_resource type="Script" uid="uid://712bn3yn14sd" path="res://scripts/drawbox.gd" id="1_m4241"]
+[ext_resource type="Script" uid="uid://bu3gy3aeo7uts" path="res://drawboxsprite.gd" id="2_qps7s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ldow"]
 size = Vector2(1, 75)
@@ -16,6 +17,9 @@ size = Vector2(75, 1)
 
 [node name="Battlebox" type="StaticBody2D"]
 script = ExtResource("1_m4241")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+script = ExtResource("2_qps7s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 37.5)
