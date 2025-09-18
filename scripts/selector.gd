@@ -104,14 +104,12 @@ func _input(event: InputEvent) -> void:
 			choice = posmod(choice - 1, CHOICE_NUMBER)
 		if choice != old_choice:
 			soul.set_position(get_btn(choice).position)
-			$UiSFX.stream = move
-			$UiSFX.play()
-		
+			$"../AUD".play_on(move, "Pulse")
+
 		if event.is_action_pressed("confirm"):
-			$UiSFX.stop()
-			$UiSFX.stream = select
-			$UiSFX.play()
+			$"../AUD".play_on(select, "Noise")
 			choice_selected.emit(choice)
+
 		
 	elif state == STATE_CHOOSE_HEAL:
 		var old_healee := healee
@@ -122,13 +120,10 @@ func _input(event: InputEvent) -> void:
 		if healee != old_healee:
 			get_hpbox(old_healee).modulate = unselected_modulate
 			get_hpbox(healee).modulate = Color.WHITE
-			$UiSFX.stream = move
-			$UiSFX.play()
+			$"../AUD".play_on(move, "Pulse")
 		
 		if event.is_action_pressed("confirm"):
-			$UiSFX.stop()
-			$UiSFX.stream = select
-			$UiSFX.play()
+			$"../AUD".play_on(move, "Noise")
 			heal_selected.emit(healee)
 	
 	#var old_choice := choice

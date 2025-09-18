@@ -21,7 +21,6 @@
 [ext_resource type="Texture2D" uid="uid://ch0svlwn0hihs" path="res://FUCKINGKNIGHT.png" id="17_87ddb"]
 [ext_resource type="Texture2D" uid="uid://1kjx00rw73cp" path="res://RK/Slash.png" id="18_mljfx"]
 [ext_resource type="Script" uid="uid://cr6i4kwlu5fuh" path="res://tween_if_clone.gd" id="19_qpefm"]
-[ext_resource type="AudioStream" uid="uid://bh1cbbsdgrmwt" path="res://BLACK KNIFE 8bit.ogg" id="20_tb2lt"]
 [ext_resource type="Texture2D" uid="uid://ck5h6q8mei4y8" path="res://assets/sprites/party/kris.png" id="21_cfc7e"]
 [ext_resource type="Texture2D" uid="uid://b27ftbsshe0do" path="res://assets/sprites/party/sword.png" id="22_gh0px"]
 [ext_resource type="Texture2D" uid="uid://b6nqctcpkiok8" path="res://assets/sprites/party/susie.png" id="23_v33yl"]
@@ -35,6 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://uyimhim7ifoq" path="res://assets/sprites/fountain/knight_fight_fountain_5.png" id="31_ra4rb"]
 [ext_resource type="Texture2D" uid="uid://bmptt48oqpp1b" path="res://assets/sprites/fountain/knight_fight_fountain_6.png" id="32_ple6s"]
 [ext_resource type="Texture2D" uid="uid://c5rtjafe57tce" path="res://assets/sprites/knight_fight_bg.png" id="33_jo4nb"]
+[ext_resource type="Script" uid="uid://4mrostawoc3p" path="res://aud.gd" id="35_xex6t"]
 
 [sub_resource type="Theme" id="Theme_4c57u"]
 default_font = ExtResource("13_t46w6")
@@ -484,6 +484,7 @@ theme_override_constants/line_spacing = -6
 text = "HEAL"
 
 [node name="Soul" type="Sprite2D" parent="Selector/MarginContainer/ColorRect"]
+z_index = 5
 position = Vector2(76, 2)
 texture = ExtResource("14_m28ev")
 centered = false
@@ -578,11 +579,6 @@ metadata/_edit_lock_ = true
 
 [node name="phantoms" type="Node2D" parent="RoaringKnight"]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("20_tb2lt")
-volume_db = -0.2
-autoplay = true
-
 [node name="ColorRect2" type="ColorRect" parent="."]
 visible = false
 offset_left = -3.0
@@ -654,3 +650,6 @@ z_index = -999
 position = Vector2(128, 112)
 texture = ExtResource("33_jo4nb")
 metadata/_edit_lock_ = true
+
+[node name="AUD" type="Node" parent="."]
+script = ExtResource("35_xex6t")
